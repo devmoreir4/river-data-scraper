@@ -1,21 +1,35 @@
-name: Update spreadsheet
+name: Update Google Spreadsheet
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch: {}
 
 jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      DEBUG: '0'
-      SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SA_JSON }}  # JSON raw
-      SPREADSHEET_ID:      ${{ secrets.SPREADSHEET_ID }}
+      DEBUG: "0"
+      SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SA_JSON }} # JSON raw
+      SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+      UPDATE_INTERVAL_DAYS: 8
+
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-      - run: pip install -r requirements.txt
-      - run: python main.py
+          python-version: "3.10"
+
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run update script
+        run: python main.py
