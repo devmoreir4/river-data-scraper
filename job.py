@@ -23,7 +23,7 @@ def should_skip() -> bool:
 def run():
     validate_env()
     if should_skip():
-        msg = "Skipping: less than 10 days since last success"
+        msg = f"Skipping: less than {UPDATE_INTERVAL_DAYS} days since last success"
         logging.info(msg)
         record_log("skipped", msg)
         return

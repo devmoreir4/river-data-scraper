@@ -10,7 +10,7 @@ DEBUG = os.getenv("DEBUG", "0") == "1"
 SERVICE_ACCOUNT_JSON = os.getenv("SERVICE_ACCOUNT_JSON")
 SPREADSHEET_ID = os.getenv("SPREADSHEET_ID")
 ALERT_URL = "http://alertadecheias.inea.rj.gov.br/alertadecheias/214109520.html"
-LINK_TEXT = os.getenv("LINK_TEXT", "Exportar para Excel.")
+LINK_TEXT = "Exportar para Excel."
 GITHUB_EVENT = os.getenv("GITHUB_EVENT_NAME", "").lower()
 UPDATE_INTERVAL_DAYS = int(os.getenv("UPDATE_INTERVAL_DAYS", 8))
 
