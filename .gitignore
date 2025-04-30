@@ -1,5 +1,24 @@
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build
+build/
+dist/
+*.egg-info/
+src/*.egg-info/
+
+# Environment
+.venv/
+env/
+venv/
+
+# Local configuration files
 .env
 credentials.json
-/.vscode
-/__pycache__
+
+# Others
+.vscode/
+.DS_Store
+*.log

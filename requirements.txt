@@ -1,9 +1,0 @@
-requests
-pandas
-gspread
-google-auth
-google-auth-oauthlib
-python-dotenv
-openpyxl
-beautifulsoup4
-tenacity

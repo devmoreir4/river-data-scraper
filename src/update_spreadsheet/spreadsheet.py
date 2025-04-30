@@ -1,7 +1,7 @@
 import pandas as pd
 from io import BytesIO
 import gspread
-from config import SPREADSHEET_ID, get_credentials
+from .config import SPREADSHEET_ID, get_credentials
 
 gc = gspread.authorize(get_credentials())
 ss = gc.open_by_key(SPREADSHEET_ID)

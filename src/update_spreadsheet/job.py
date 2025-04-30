@@ -2,10 +2,10 @@ import logging
 from datetime import datetime, timedelta, timezone
 import pandas as pd
 
-from config import GITHUB_EVENT, UPDATE_INTERVAL_DAYS, validate_env
-from downloader import download_excel
-from spreadsheet import fetch_new_rows, append_rows
-from logger import record_log
+from .config import GITHUB_EVENT, UPDATE_INTERVAL_DAYS, validate_env
+from .downloader import download_excel
+from .spreadsheet import fetch_new_rows, append_rows
+from .logger import record_log
 
 
 def should_skip() -> bool:

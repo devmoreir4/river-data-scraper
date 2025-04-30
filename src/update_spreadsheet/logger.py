@@ -2,7 +2,7 @@ import logging
 from datetime import datetime, timezone
 import gspread
 import gspread.exceptions as gspread_ex
-from config import SPREADSHEET_ID, get_credentials
+from .config import SPREADSHEET_ID, get_credentials
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(levelname)s - %(message)s")
