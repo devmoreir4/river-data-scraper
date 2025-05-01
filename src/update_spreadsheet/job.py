@@ -5,14 +5,14 @@ import pandas as pd
 from .config import GITHUB_EVENT, UPDATE_INTERVAL_DAYS, validate_env
 from .downloader import download_excel
 from .spreadsheet import fetch_new_rows, append_rows
-from .logger import record_log
+from .logger import record_log, get_log_worksheet
 
 
 def should_skip() -> bool:
     if GITHUB_EVENT != "schedule":
         return False
-    ws = pd.DataFrame(
-        record_log.__self__.get_log_worksheet().get_all_records())
+
+    ws = pd.DataFrame(get_log_worksheet().get_all_records())
     if ws.empty:
         return False
     last_success = ws[ws.Status == "success"].RunTimestamp.max()
